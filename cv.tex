@@ -1,0 +1,290 @@
+\documentclass[a4paper]{article}
+
+\usepackage[french]{babel}
+\usepackage{CJKutf8}
+
+\input{style.tex}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\profilepicture[{20cm 0cm 2cm 0cm}]{seri.jpg}
+
+\author{Fahd Ouassarni}
+\title{Informatique embarqu\'ee, Linux embarqu\'e.}
+
+\birth[FR]{17/09/1996}
+\email{fahd@oussfahd.xyz}
+\address{6 Boulevard Mar\'echal Juin\\
+		 14000 CAEN}
+\phone{+33 6 43 15 50 72}
+\website{oussfahd.xyz}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LEFT COLUMN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{column}[\leftcolumnwidth]
+
+	\addblock{\faRocket}{Workflow}
+
+		\addcontent
+		{
+			\textmd{MPLABX} pour les projets PIC.
+			\textmd{Vivado} pour les projets FPGA.
+			\textmd{Eagle} et \textmd{LTSpice} pour les projets PCB.
+			\textmd{VIM} et \textmd{GCC} pour les projets Linux.\\
+			\underline{Basiquement une \textmd{toolchain} et un bon \textmd{editeur de texte}}.
+		}{}{}{}{}
+
+	\addblock{\faBriefcase}{Exp\'eriences professionnelles}
+
+		\addcontent[job]{Intern}
+			{Hyptra}{Tailleville, France}
+			{Avril 2019 --- Septembre 2019}
+			{
+				\squareitem{
+					Mission: Developpement de logiciel embarqu\'e.
+				}
+			}
+
+		\addcontent[job]{Chef d'\'equipe technique}
+			{SERI (ENSICAEN)}{Caen, France}
+			{Septembre 2018}
+			{
+				\squareitem{
+					Jeux de r\^ole de startup introduit par l'ENSICAEN.
+				}
+				\squareitem{
+					Mission: Communication WIFI sur Linux Embarqu\'ee.
+				}
+				\squareitem{
+					Produit: Space Inspection Rover [\link{https://www.facebook.com/watch/?v=335022830595514}{Video}]
+				}
+			}
+
+		\addcontent[job]{\'Etudiant chercheur}
+			{Universit\'e de Kumamoto}{Kumamoto, Japan}
+			{Mai 2018 --- Ao\^ut 2018}
+			{
+				\squareitem{
+					Accueilli par: Human Interface and Cyber Communication Laboratory.
+				}
+				\squareitem{
+					Sujet de recherche: Multichannel speech segregation using FDBM on a Single Board Computer. [\link{https://github.com/ouassarnifahd/cfdbm}{cfdbm}]
+				}
+			}
+
+	\addblock{\faGraduationCap}{Dipl\^omes et Formations}
+
+		\addcontent[degree]{Dipl\^ome d'ing\'enieur en \'electronique}
+			{ENSICAEN}{Caen, France}
+			{Septembre 2016 --- Septembre 2019}
+			{
+				\squareitem{
+					Sp\'ecialit\'e: \'Electronique et physique appliqu\'ee.
+				}
+				\squareitem{
+					Majeur: Signal, automatique pour les t\'el\'ecommunication et l'embarqu\'e.
+				}
+			}
+
+		\addcontent[degree]{Classes Pr\'eparatoires aux Grandes \'Ecoles}
+			{Lyc\'ee Jean Moulin}{Forbach, France}
+			{Septembre 2014 --- Mai 2016}
+			{
+				\squareitem{
+					Sp\'ecialit\'e: Math\'ematique, Physique et Science de l'ing\'enieur.
+				}
+				\squareitem{
+					R\'esultat: ENSICAEN via Concours Commun Polytechnique.
+				}
+			}
+
+		\addcontent[degree]{Baccalaur\'eat Scientifique}
+			{Lyc\'ee Salman Al Farissi}{Sal\'e, Maroc}
+			{Septembre 2013 --- Juin 2014}
+			{
+				\squareitem{
+					Sp\'ecialit\'e: Math\'ematique et Science de l'ing\'enieur.
+				}
+				\squareitem{
+					Mention: Bien
+				}
+			}
+
+		\vspace{-.3cm} %% FIXME! Manual spacement
+
+	\addblock{\faWrench}{Projets professionnels}
+
+		\addcontent[project]{Xen on ARM}
+			{}{ARM, Linux, Xen, Hypervisors}
+			{Mars 2019}
+			{
+				\squareitem{
+					Introduction \`a la virtualisation pour les syst\`emes embarqu\'ee avec Xen.
+				}
+			}
+
+			\vspace{-.3cm} %% FIXME! Manual spacement
+
+		\addcontent[project]{SoC on FPGA}
+			{ENSICAEN}{C, VHDL, Zynq, FPGA}
+			{Decembre 2018 --- F\'evrier 2019}
+			{
+				\squareitem{
+					Introduction \`a l'architecture ARM/FPGA avec Zynq.
+				}
+			}
+
+			\vspace{-.3cm} %% FIXME! Manual spacement
+
+		\addcontent[project]{Evaluation of TCI6638K2K}
+			{THALES AIR SYSTEMS SAS}{Linux, C, ARM, DSP}
+			{Octobre 2018 --- F\'evrier 2019}
+			{
+				\squareitem{
+					Introduction \`a Linux embarqu\'ee pour des applications temps r\'eel.
+				}
+			}
+
+			\vspace{-.3cm} %% FIXME! Manual spacement
+
+		\addcontent[project]{cfdbm}
+			{Universit\'e de Kumamoto}{C, ALSA, ARM, SBC}
+			{June 2018 --- Ao\^ut 2018}
+			{
+				\squareitem{
+					Introduction \`a ALSA pour du traitement temps r\'eel du signal acoustique.
+				}
+			}
+
+			\vspace{-.3cm} %% FIXME! Manual spacement
+
+		\addcontent[project]{Course Robot Mobile}
+			{ENSICAEN}{LTSpice, Eagle, PCB}
+			{Octobre 2017 --- Avril 2018}
+			{
+				\squareitem{
+					R\'ealisation d'un robot suiveur de ligne.
+				}
+			}
+
+\end{column}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RIGHT COLUMN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{column}[\rightcolumnwidth]
+
+	\addblock{\faLightbulbO}{Motivation}
+
+		\addcontent
+		{
+			{\Large\begin{CJK}{UTF8}{min}「学びは生涯の宝」\end{CJK}}
+		}{}{}{}{}
+
+	\addblock{\faDownload}{Atouts}
+
+		\addcontent[asset]{Motiv\'e}
+		{}{}{}{}
+
+		\addcontent[asset]{Curieux}
+		{}{}{}{}
+
+		\addcontent[asset]{Autonome}
+		{}{}{}{}
+
+		\addcontent[asset]{D\'etermin\'e}
+		{}{}{}{}
+
+		\addcontent[asset]{Travail collaboratif}
+		{}{}{}{}
+
+	\addblock{\faComments}{Langues}
+
+		\addcontent[lang]{Arabe}
+			{0.95}
+			{Langue natale}
+			{}{}{}
+
+		\addcontent[lang]{Fran\c{c}ais}
+			{0.85}
+			{Bilingue}
+			{}{}{}
+
+		\addcontent[lang]{Anglais}
+			{0.86}
+			{TOEIC: 855/990}
+			{}{}{}
+
+		\addcontent[lang]{Japonais}
+			{0.28}
+			{D\'ebutant N4}
+			{}{}{}
+
+	\addblock{\faCogs}{Comp\'etences techniques}
+
+		\addcontent[asset]{Architectures}
+			{x86, ARM, PIC, 8051.}
+			{}{}{}{}
+
+		\addcontent[asset]{Communication}
+			{UART, SPI, I2C, USB, WIFI, BLE, NFC.}
+			{}{}{}{}
+
+		\addcontent[asset]{Programmation}
+			{C, C++, Java, Javascript.}
+			{}{}{}{}
+
+		\addcontent[asset]{Frameworks}
+			{ALSA, SDL, OpenMP, Bootstrap.}
+			{}{}{}{}
+
+		\addcontent[asset]{Scripting}
+			{Shell, Perl, Lua, Python, Matlab.}
+			{}{}{}{}
+
+		\addcontent[asset]{Markup}
+			{HTML, CSS, {\LaTeX}, Markdown.}
+			{}{}{}{}
+
+		\addcontent[asset]{Outils}
+			{Git, GCC, Makefile, SSH.}
+			{}{}{}{}
+
+		\addcontent[asset]{HDL}
+			{VHDL, SPICE.}
+			{}{}{}{}
+
+	\addblock{\faFutbolO}{Centres d’int\'er\^et}
+
+		\addcontent[asset]{Technologie}
+		{}{}{}{}
+
+		\addcontent[asset]{Culture}
+		{}{}{}{}
+
+		\addcontent[asset]{Voyages}
+		{}{}{}{}
+
+		\addcontent[asset]{Jeux Vid\'eo}
+		{}{}{}{}
+
+	\addblock{\faGlobe}{Liens}
+
+		\addcontent[asset]
+		{\fawesomize{\faGithub}{}}
+		{\link[\color{secondary-color}]{https://github.com/ouassarnifahd}{ouassarnifahd}}
+		{inlined}{}{}
+
+		\addcontent[asset]
+		{\fawesomize{\faLinkedin}{}}
+		{\link[\color{secondary-color}]{https://www.linkedin.com/in/fahd-ouassarni/}{fahd-ouassarni}}
+		{inlined}{}{}
+
+\end{column}
+
+\end{document}
