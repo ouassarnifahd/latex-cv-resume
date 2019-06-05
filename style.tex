@@ -1,5 +1,4 @@
 %% packages used
-\usepackage[hmargin=1.5cm,left=.4cm,vmargin=.4cm]{geometry}
 \usepackage[hidelinks]{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage[default]{lato}
@@ -29,7 +28,7 @@
 \hyphenpenalty=10000
 \hbadness=10000
 
-%% Color definitions
+%% Color definitions (help yourself at https://latexcolor.com/)
 \definecolor{page-color}{HTML}{F6F2E3}
 \definecolor{default-color}{HTML}{000000}
 \definecolor{primary-color}{HTML}{ac7331}
@@ -37,7 +36,7 @@
 \definecolor{dark-gray-color}{HTML}{444444}
 \definecolor{light-gray-color}{HTML}{BFBFBF}
 
-%% Nice taint
+%% Nice readable background
 \pagecolor{page-color}
 
 %% Length definitions
@@ -64,7 +63,7 @@
 \newlength{\contentwidth}
 \newlength{\contentsep}
 \setlength{\contentindent}          {.5cm}
-\newcommand{\contentwidthratio}[0]  {0.90}
+\newcommand{\contentwidthratio}     {0.90}
 \setlength{\contentsep}             {.2cm}
 
 \newlength{\myrulefill}
@@ -191,14 +190,14 @@
     \begin{minipage}{\contentwidth}
         \ifthenelse{\NOT\equal{#1}{free}}
         {
-            %% Position (Skill)
             \subsection{#2}
+            %% Position (Skill)
             \ifthenelse{\equal{#1}{asset}\AND
                         \NOT\equal{#3}{}\AND
                         \NOT\equal{#4}{inlined}\OR
                         \equal{#1}{lang}}
             {
-                %% Breaking the runin subsection
+                %% Breaking the subsection's runin
                 \hfill\\
             }
             {

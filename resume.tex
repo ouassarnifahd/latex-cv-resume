@@ -1,10 +1,12 @@
 \documentclass[a4paper]{article}
-
+\usepackage[hmargin=1.5cm,left=.3cm,vmargin=.2cm,top=.04cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{CJKutf8}
 
 \input{style.tex}
+
+\setlength{\headersep} {.4cm}
 
 \begin{document}
 
@@ -14,7 +16,7 @@
 \profilepicture[{20cm 0cm 2cm 0cm}]{seri.jpg}
 
 \author{Fahd Ouassarni}
-\title{Embedded software development,\\ Embedded Linux.}
+\title{Embedded software developpment,\\ Embedded Linux.}
 
 \birth{17/09/1996}
 \email{ouss.fahd.1996@gmail.com}
@@ -43,14 +45,22 @@
 
 	\addblock{\faBriefcase}{Job Experience}
 
-		\addcontent[job]{Intern}
+		\addcontent[job]{Trainee Engineer}
 			{Hyptra}{Tailleville, France}
 			{April 2019 --- September 2019}
 			{
 				\squareitem{
-					Mission: Embedded software developpement.
+					Embedded software developpement for 8051.
+				}
+				\squareitem{
+					PCB design using Altium Designer.
+				}
+				\squareitem{
+					FPGA synthesis on PicoZed.
 				}
 			}
+
+			\vspace{-.1cm} %% FIXME! Manual spacement
 
 		\addcontent[job]{Technical Team Leader}
 			{SERI (ENSICAEN)}{Caen, France}
@@ -67,6 +77,8 @@
 				}
 			}
 
+			\vspace{-.1cm} %% FIXME! Manual spacement
+
 		\addcontent[job]{Special Research Student}
 			{Kumamoto University}{Kumamoto, Japan}
 			{May 2018 --- August 2018}
@@ -75,9 +87,11 @@
 					Hosted by: Human Interface and Cyber Communication Laboratory.
 				}
 				\squareitem{
-					Research subject: Multichannel speech segregation using FDBM on a Single Board Computer. [\link{https://github.com/ouassarnifahd/cfdbm}{cfdbm}]
+					Research: Multichannel speech segregation using FDBM on a SBC. [\link{https://github.com/ouassarnifahd/cfdbm}{cfdbm}]
 				}
 			}
+
+			\vspace{-.3cm} %% FIXME! Manual spacement
 
 	\addblock{\faGraduationCap}{Education}
 
@@ -94,7 +108,7 @@
 			}
 
 		\addcontent[degree]{Higher School Preparatory Classes}
-			{Lyc\'ee Jean Moulin}{Forbach, France}
+			{Jean Moulin High School}{Forbach, France}
 			{September 2014 --- May 2016}
 			{
 				\squareitem {
@@ -110,7 +124,7 @@
 			}
 
 		\addcontent[degree]{Baccalaureate}
-			{Lyc\'ee Salman Al Farissi}{Sal\'e , Morocco}
+			{Salman Al Farissi High School}{Sal\'e , Morocco}
 			{September 2013 --- June 2014}
 			{
 				\squareitem{
@@ -136,7 +150,7 @@
 			{December 2018 --- February 2019}
 			{
 				\squareitem{
-					Introduction to Zynq Processing System alongside VHDL synthesized peripherals driving an LCD used in a bare metal application.
+					Introduction to Zynq Processing System alongside VHDL synthesized peripherals.
 				}
 			}
 
@@ -156,18 +170,18 @@
 			{June 2018 --- August 2018}
 			{
 				\squareitem{
-					Introduction to ALSA for realtime speech separation application.
+					Introduction to ALSA for a realtime speech separation application.
 				}
 			}
 
 			\vspace{-.3cm} %% FIXME! Manual spacement
 
-		\addcontent[project]{Course Robot Mobile}
+		\addcontent[project]{Mobile Robot Race}
 			{ENSICAEN}{LTSpice, Eagle, PCB}
 			{October 2017 --- April 2018}
 			{
 				\squareitem{
-					Phase Locked Loop application in a robotics project.
+					A race of motorized machines guided on a line of electromagnetic field.
 				}
 			}
 

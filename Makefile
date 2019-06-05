@@ -1,7 +1,7 @@
 # Minimal makefile for LaTeX documents
 DOCS := cv resume
 
-all: compile clean
+all: compile mrproper
 
 compile: $(DOCS:%=%.pdf)
 
@@ -9,5 +9,8 @@ compile: $(DOCS:%=%.pdf)
 	pdflatex $<
 	pdflatex $<
 
-clean:
+mrproper:
 	rm -f *.{out,log,aux}
+
+clean:
+	rm -f *.pdf
