@@ -1,11 +1,12 @@
 # Minimal makefile for LaTeX documents
+DEPS := faresume.cls style.tex
 DOCS := cv resume
 
 all: compile mrproper
 
 compile: $(DOCS:%=%.pdf)
 
-%pdf:%tex
+%pdf:%tex $(DEPS)
 	pdflatex $<
 	pdflatex $<
 
@@ -14,3 +15,5 @@ mrproper:
 
 clean:
 	rm -f *.pdf
+
+.PHONY: all compile mrproper clean
