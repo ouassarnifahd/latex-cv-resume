@@ -3,8 +3,6 @@
 \usepackage[english]{babel}
 \usepackage{CJKutf8}
 
-% \input{style.tex}
-
 \setlength{\headersep} {.4cm}
 
 \begin{document}
@@ -26,9 +24,9 @@
 
 \maketitle
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % LEFT COLUMN
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{column}[\leftcolumnwidth]
 
 	\addblock{\faRocket}{Workflow}
@@ -48,49 +46,33 @@
 			{Hyptra}{Tailleville, France}
 			{April 2019 --- September 2019}
 			{
-				\squareitem{
-					Embedded software developpement for 8051.
-				}
-				\squareitem{
-					PCB design using Altium Designer.
-				}
-				\squareitem{
-					FPGA synthesis on PicoZed.
-				}
+				\begin{additems}
+					\item Embedded software developpement for 8051.
+					\item PCB design using Altium Designer.
+					\item FPGA synthesis on PicoZed.
+				\end{additems}
 			}
-
-			\vspace{-.1cm} %% FIXME! Manual spacement
 
 		\addcontent[job]{Technical Team Leader}
 			{SERI (ENSICAEN)}{Caen, France}
 			{September 2018}
 			{
-				\squareitem{
-					A two weeks start-up role play introduced by ENSICAEN.
-				}
-				\squareitem{
-					Mission: Wireless Communication on Embedded Linux.
-				}
-				\squareitem{
-					Product: Space Inspection Rover [\link{https://www.facebook.com/watch/?v=335022830595514}{Video}]
-				}
+				\begin{additems}
+					\item A two weeks start-up role play introduced by ENSICAEN.
+					\item Mission: Wireless Communication on Embedded Linux.
+					\item Product: Space Inspection Rover [\link{https://www.facebook.com/watch/?v=335022830595514}{Video}]
+				\end{additems}
 			}
-
-			\vspace{-.1cm} %% FIXME! Manual spacement
 
 		\addcontent[job]{Special Research Student}
 			{Kumamoto University}{Kumamoto, Japan}
 			{May 2018 --- August 2018}
 			{
-				\squareitem{
-					Hosted by: Human Interface and Cyber Communication Laboratory.
-				}
-				\squareitem{
-					Research: Multichannel speech segregation using FDBM on a SBC. [\link{https://github.com/ouassarnifahd/cfdbm}{cfdbm}]
-				}
+				\begin{additems}
+					\item Hosted by: Human Interface and Cyber Communication Laboratory.
+					\item Research: Multichannel speech segregation using FDBM on a SBC. [\link{https://github.com/ouassarnifahd/cfdbm}{cfdbm}]
+				\end{additems}
 			}
-
-			\vspace{-.3cm} %% FIXME! Manual spacement
 
 	\addblock{\faGraduationCap}{Education}
 
@@ -98,40 +80,32 @@
 			{ENSICAEN}{Caen, France}
 			{September 2016 --- September 2019}
 			{
-				\squareitem{
-					Speciality: Electronics and applied Physics.
-				}
-				\squareitem{
-					Major: Signal, regulation for embedded and telecom.
-				}
+				\begin{additems}
+					\item Speciality: Electronics and applied Physics.
+					\item Major: Signal, regulation for embedded and telecom.
+				\end{additems}
 			}
 
 		\addcontent[degree]{Higher School Preparatory Classes}
 			{Jean Moulin High School}{Forbach, France}
 			{September 2014 --- May 2016}
 			{
-				\squareitem {
-					They consist of two very intensive years with the main goal of training undergraduate students for enrollment in one of the %\link{https://en.wikipedia.org/wiki/Grandes_%C3%A9coles}
+				\begin{additems}
+					\item They consist of two very intensive years with the main goal of training undergraduate students for enrollment in one of the \link{https://en.wikipedia.org/wiki/Grandes_\%C3\%A9coles}
 					{grandes \'ecoles}.
-				}\\
-				\squareitem{
-					Speciality: Mathematics, Physics and Engineering Science.
-				}
-				\squareitem{
-					Results: Admission at ENSICAEN via Concours Commun Polytechnique.
-				}
+					\item Speciality: Mathematics, Physics and Engineering Science.
+					\item Results: Admission at ENSICAEN via Concours Commun Polytechnique.
+				\end{additems}
 			}
 
 		\addcontent[degree]{Baccalaureate}
 			{Salman Al Farissi High School}{Sal\'e , Morocco}
 			{September 2013 --- June 2014}
 			{
-				\squareitem{
-					Speciality: Mathematics and Engineering Science
-				}
+				\begin{additems}
+					\item Speciality: Mathematics and Engineering Science.
+				\end{additems}
 			}
-
-		\vspace{-.3cm} %% FIXME! Manual spacement
 
 	\addblock{\faWrench}{Projects}
 
@@ -139,55 +113,51 @@
 			{}{ARM, Linux, Xen, Hypervisors}
 			{March 2019}
 			{
-				\squareitem{
-					Introduction to Xen and other different hypervisors in a quest to enhance both my Linux and ARM architecture skills.
-				}
+				\begin{additems}
+					\item Introduction to Xen and other different hypervisors in a quest to enhance both my Linux and ARM architecture skills.
+				\end{additems}
 			}
 
 		\addcontent[project]{SoC on FPGA}
 			{ENSICAEN}{C, VHDL, Zynq, FPGA}
 			{December 2018 --- February 2019}
 			{
-				\squareitem{
-					Introduction to Zynq Processing System alongside VHDL synthesized peripherals.
-				}
+				\begin{additems}
+					\item Introduction to Zynq Processing System alongside VHDL synthesized peripherals.
+				\end{additems}
 			}
 
 		\addcontent[project]{Evaluation of TCI6638K2K}
 			{THALES AIR SYSTEMS SAS}{Linux, C, ARM, DSP}
 			{October 2018 --- February 2019}
 			{
-				\squareitem{
-					Introduction to Embedded Linux and Realtime DSP applications.
-				}
+				\begin{additems}
+					\item Introduction to Embedded Linux and Realtime DSP applications.
+				\end{additems}
 			}
-
-			\vspace{-.3cm} %% FIXME! Manual spacement
 
 		\addcontent[project]{cfdbm}
 			{Kumamoto University}{C, ALSA, ARM, SBC}
 			{June 2018 --- August 2018}
 			{
-				\squareitem{
-					Introduction to ALSA for a realtime speech separation application.
-				}
+				\begin{additems}
+					\item Introduction to ALSA for a realtime speech separation application.
+				\end{additems}
 			}
-
-			\vspace{-.3cm} %% FIXME! Manual spacement
 
 		\addcontent[project]{Mobile Robot Race}
 			{ENSICAEN}{LTSpice, Eagle, PCB}
 			{October 2017 --- April 2018}
 			{
-				\squareitem{
-					A race of motorized machines guided on a line of electromagnetic field.
-				}
+				\begin{additems}
+					\item A race of motorized machines guided on a line of electromagnetic field.
+				\end{additems}
 			}
 
 \end{column}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % RIGHT COLUMN
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{column}[\rightcolumnwidth]
 
 	\addblock{\faLightbulbO}{Life Motto}
@@ -254,8 +224,12 @@
 			{ALSA, SDL, OpenMP, Bootstrap.}
 			{}{}{}{}
 
+		\addcontent[asset]{Simulation}
+			{MATLAB, Simulink.}
+			{}{}{}{}
+
 		\addcontent[asset]{Scripting}
-			{Shell, Perl, Lua, Python, Matlab.}
+			{Shell, Python, Perl, Lua.}
 			{}{}{}{}
 
 		\addcontent[asset]{Markup}
@@ -263,7 +237,7 @@
 			{}{}{}{}
 
 		\addcontent[asset]{Tools}
-			{Git, GCC, Makefile, SSH.}
+			{Git, Makefile, Wireshark.}
 			{}{}{}{}
 
 		\addcontent[asset]{HDL}

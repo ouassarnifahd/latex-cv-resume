@@ -1,25 +1,12 @@
-%% Style sheet for colors
+%% Style sheet for colors fonts and spacement
 
-%% Color definitions (help yourself at https://latexcolor.com/)
-\definecolor{page-color}        {HTML}{F6F2E3}
-\definecolor{default-color}     {HTML}{000000}
-\definecolor{primary-color}     {HTML}{ac7331}
-\definecolor{secondary-color}   {HTML}{848484}
-\definecolor{dark-gray-color}   {HTML}{444444}
-\definecolor{light-gray-color}  {HTML}{BFBFBF}
-
-%% Length definitions
-\setlength{\headerheigth}           {2cm}
-\setlength{\headerwidth}            {0.72\textwidth}
-\setlength{\headersep}              {.5cm}
-
-\setlength{\profilepicturewidth}    {0.20\headerwidth}
-\setlength{\titlesectionwidth}      {0.60\headerwidth}
-
-\setlength{\leftcolumnwidth}        {0.68\textwidth}
-\setlength{\rightcolumnwidth}       {0.38\textwidth}
-\setlength{\contactsectionwidth}    {0.90\rightcolumnwidth}
-
-\setlength{\contentindent}          {.5cm}
-\renewcommand{\contentwidthratio}   {0.90}
-\setlength{\contentsep}             {.2cm}
+%% Document style
+\renewcommand{\authorstyle}       {\color{default-color}\authorfont}
+\renewcommand{\titlestyle}        {\color{primary-color}\titlefont}
+\renewcommand{\contentstyle}      {\color{secondary-color}\contentfont}
+\renewcommand{\blocktitlestyle}   {\color{primary-color}\blocktitlefont}
+\renewcommand{\sectionstyle}      {\color{default-color}\sectionfont}
+\renewcommand{\companystyle}      {\color{primary-color}\contentfont}
+\renewcommand{\placestyle}        {\color{dark-gray-color}\contentfont}
+\renewcommand{\periodstyle}       {\color{secondary-color}\contentfont}
+\renewcommand{\tagsstyle}         {\tagsfont}

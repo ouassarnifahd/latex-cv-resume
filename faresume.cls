@@ -11,6 +11,7 @@
 \RequirePackage[default]{lato}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{fontawesome}
+\RequirePackage{enumitem}
 \RequirePackage{graphicx}
 \RequirePackage{setspace}
 \RequirePackage{titlesec}
@@ -23,7 +24,7 @@
 \newcommand{\authorfont}        {\huge\bfseries}
 \newcommand{\titlefont}         {\large\bfseries}
 \newcommand{\blocktitlefont}    {\large}
-\newcommand{\sectiontitlefont}  {\normalsize\bfseries}
+\newcommand{\sectionfont}       {\normalsize\bfseries}
 \newcommand{\contentfont}       {\normalsize\fontseries{l}\selectfont}
 \newcommand{\tagsfont}          {\scriptsize\scshape}
 
@@ -45,6 +46,20 @@
 
 %% Nice readable background
 \pagecolor{page-color}
+
+%% Default document style
+\newcommand{\authorstyle}       {\color{default-color}\authorfont}
+\newcommand{\titlestyle}        {\color{primary-color}\titlefont}
+\newcommand{\contentstyle}      {\color{secondary-color}\contentfont}
+\newcommand{\blocktitlestyle}   {\color{primary-color}\blocktitlefont}
+\newcommand{\sectionstyle}      {\color{default-color}\sectionfont}
+\newcommand{\companystyle}      {\color{primary-color}\contentfont}
+\newcommand{\placestyle}        {\color{dark-gray-color}\contentfont}
+\newcommand{\periodstyle}       {\color{secondary-color}\contentfont}
+\newcommand{\tagsstyle}         {\tagsfont}
+
+%% User defined document style
+\input{style.tex}
 
 %% Length definitions
 \newlength{\headerheigth}
@@ -84,9 +99,11 @@
     % \parbox[#1]{}
 }
 
-\newcommand{\squareitem}[2][t]{
-    \fawesomize[#1]{{\tiny\faStop}}{#2}
-}
+%% content items
+\newenvironment{additems}
+{\renewcommand{\labelitemi}{{\tiny\faStop}}
+\begin{itemize}[noitemsep,leftmargin=\contentindent]}
+{\end{itemize}}
 
 % BUG invisible characters?
 \newcommand{\link}[3][\color{primary-color}]{{#1\href{#2}{#3}}}
@@ -129,20 +146,22 @@
             \setlength{\titlesectionwidth}{\leftcolumnwidth}
         }
     	\begin{minipage}[t][0cm][c]{\titlesectionwidth}
-            {\color{default-color}\authorfont\theauthor}
+            {\authorstyle\theauthor}
             \par\setstretch{1.3}
-            {\color{primary-color}\titlefont\thetitle}
+            {\titlestyle\thetitle}
     	\end{minipage}
     \end{minipage}\hfill
     \begin{minipage}[c][\headerheigth]{\contactsectionwidth}
-        \color{secondary-color}\contentfont
+        \contentstyle
         \setlength{\contentwidth}{\contentwidthratio\textwidth}
         \setstretch{1.2}
-        \par\fawesomize{\faCalendar}{\thebirth}
-        \par\fawesomize[c]{\faEnvelope}{\themail}
-        \par\fawesomize{\faMapMarker}{\theaddress}\\
-        \par\fawesomize{\faPhoneSquare}{\thephone}
-        \par\fawesomize[c]{\faLink}{\thewebsite}
+        \begin{additems}
+            \item[\faCalendar] \thebirth
+            \item[\faEnvelope] \themail
+            \item[\faMapMarker] \theaddress
+            \item[\faPhoneSquare] \thephone
+            \item[\faLink] \thewebsite
+        \end{additems}
     \end{minipage}
     \par
     \ifthenelse{\isundefined{\theprofilepicture}}
@@ -170,17 +189,17 @@
 
 %% section
 \titleformat{\section}
-{\color{primary-color}\blocktitlefont}
+{\blocktitlestyle}
 {}{0cm}{}
 \titlespacing{\section}
-{0cm}{\contentsep}{0.5\contentsep}
+{0cm}{\contentsep}{0.3\contentsep}
 
 %% subsection
 \titleformat{\subsection}[runin]
-{\color{default-color}\sectiontitlefont}
+{\sectionstyle}
 {}{0cm}{}
 \titlespacing{\subsection}
-{0cm}{0cm}{3pt}[\contentsep]
+{0cm}{0cm}{3pt}[0.8\contentsep]
 
 %% New content
 % Type [free, job, degree, project, lang, asset]
@@ -218,8 +237,8 @@
         {
             %% / Company Place
             %% Period
-            {\contentfont / {\color{primary-color} #3} {\color{dark-gray-color}#4}}
-            \par{\color{secondary-color}\contentfont #5}
+            / {\companystyle #3} {\placestyle #4}
+            \par{\periodstyle #5}
             \par\vspace{0.6\contentsep}
         }
         {
@@ -228,13 +247,13 @@
                 %% Tags
                 \ifthenelse{\NOT\equal{#3}{}}
                 {
-                    {\contentfont / {\color{primary-color} #3}}
+                    / {\companystyle #3}
                 }
                 {
                     %% else put nothing in this paragraph
                 }
-                \hfill{\tagsfont #4}
-                \par{\color{secondary-color}\contentfont#5}
+                \hfill{\tagsstyle #4}
+                \par{\periodstyle#5}
                 \par\vspace{0.6\contentsep}
             }
             {
@@ -259,24 +278,24 @@
             %% Details (This paragraph is for everyone)
             \ifthenelse{\equal{#1}{free}}%
             {
-                {\color{secondary-color}\contentfont{#2}}
+                {\contentstyle{#2}}
             }
             {
                 \ifthenelse{\equal{#1}{asset}}
                 {
-                    {\color{secondary-color}\contentfont{#3}}
+                    {\contentstyle{#3}}
                 }
                 {
                     \ifthenelse{\equal{#1}{lang}}
                     {
-                        {\color{secondary-color}\contentfont{#4}}
+                        {\contentstyle{#4}}
                     }
                     {
                         \ifthenelse{\equal{#1}{degree}\OR
                                     \equal{#1}{job}\OR
                                     \equal{#1}{project}}
                         {
-                            {\color{secondary-color}\contentfont{#6}}
+                            {\contentstyle{#6}}
                         }
                         {
                             %% else put nothing in this paragraph
@@ -287,15 +306,16 @@
         \end{minipage}
     \end{minipage}
     %% Spacing
-    \ifthenelse{\equal{#1}{job}\OR\equal{#1}{degree}}%\OR\equal{#1}{project}}
+    \ifthenelse{\equal{#1}{job}\OR\equal{#1}{degree}\OR\equal{#1}{project}}
     {
-        \vspace{-0.5\contentsep}
+        \vspace{-0.7\contentsep}
     }
     {
-        \vspace{0.5\contentsep}
+        \vspace{0.4\contentsep}
     }
 }
 
+%% New block
 \newcommand{\addblock}[2]{
     \section{\fawesomize{#1}{\mbox{#2}}}
 }
