@@ -99,11 +99,18 @@
     % \parbox[#1]{}
 }
 
-%% content items
+%% content items (TODO)
+\SetLabelAlign{center}{\makebox[\contentindent][c]{#1}}
 \newenvironment{additems}
-{\renewcommand{\labelitemi}{{\tiny\faStop}}
-\begin{itemize}[noitemsep,leftmargin=\contentindent]}
-{\end{itemize}}
+{%
+    \vspace{-0.2\contentsep}
+    \renewcommand{\labelitemi}{{\tiny\faStop}}
+    \begin{itemize}[noitemsep,leftmargin=\contentindent]
+}
+{%
+    \end{itemize}
+    \vspace{-0.5\contentsep}
+}
 
 % BUG invisible characters?
 \newcommand{\link}[3][\color{primary-color}]{{#1\href{#2}{#3}}}
@@ -306,12 +313,12 @@
         \end{minipage}
     \end{minipage}
     %% Spacing
-    \ifthenelse{\equal{#1}{job}\OR\equal{#1}{degree}\OR\equal{#1}{project}}
-    {
-        \vspace{-0.7\contentsep}
-    }
+    \ifthenelse{\equal{#1}{free}\OR\equal{#1}{lang}\OR\equal{#1}{asset}}
     {
         \vspace{0.4\contentsep}
+    }
+    {
+        % FIXME Do it manually
     }
 }
 
