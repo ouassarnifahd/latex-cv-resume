@@ -1,6 +1,6 @@
-%% new latex class [2019/06/06 A FontAwesome two columns LaTeX CV Class]
+%% new latex class
+\ProvidesClass{faresume}[2019/06/06 v1.0 A FontAwesome two columns LaTeX CV Class]
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{faresume}
 
 %% Enhirited Class and required packages
 \LoadClass[a4paper]{article}
@@ -199,7 +199,7 @@
 {\blocktitlestyle}
 {}{0cm}{}
 \titlespacing{\section}
-{0cm}{\contentsep}{0.3\contentsep}
+{0cm}{0.5\contentsep}{0.3\contentsep}
 
 %% subsection
 \titleformat{\subsection}[runin]
@@ -223,7 +223,7 @@
     \begin{minipage}{\contentwidth}
         \ifthenelse{\NOT\equal{#1}{free}}
         {
-            \subsection{#2}
+            \subsection*{#2}
             %% Position (Skill)
             \ifthenelse{\equal{#1}{asset}\AND
                         \NOT\equal{#3}{}\AND
@@ -271,6 +271,7 @@
             \ifthenelse{\equal{#1}{lang}}
             {
                 %% Mastery (rule)
+                \vspace{0.5\contentsep}
                 \begin{minipage}{\contentwidthratio\contentwidth}
                     \setlength{\myrulefill}{\textwidth}
                     \addtolength{\myrulefill}{-#3\textwidth}
@@ -315,7 +316,7 @@
     %% Spacing
     \ifthenelse{\equal{#1}{free}\OR\equal{#1}{lang}\OR\equal{#1}{asset}}
     {
-        \vspace{0.4\contentsep}
+        \vspace{0.5\contentsep}
     }
     {
         % FIXME Do it manually
@@ -324,5 +325,5 @@
 
 %% New block
 \newcommand{\addblock}[2]{
-    \section{\fawesomize{#1}{\mbox{#2}}}
+    \section*{\fawesomize{#1}{\mbox{#2}}}
 }
