@@ -4,7 +4,7 @@ OUT_QUIET := 2&> /dev/null
 OUT_CLEAN ?= $(OUT_ERROR)
 
 DEPS := faresume.cls style.tex
-DOCS := cv resume
+DOCS ?= cv resume
 
 all: compile mrproper
 
