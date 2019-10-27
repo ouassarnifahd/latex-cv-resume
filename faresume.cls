@@ -58,9 +58,6 @@
 \newcommand{\periodstyle}       {\color{secondary-color}\contentfont}
 \newcommand{\tagsstyle}         {\tagsfont}
 
-%% User defined document style
-\input{style.tex}
-
 %% Length definitions
 \newlength{\headerheigth}
 \newlength{\headerwidth}
@@ -91,7 +88,7 @@
 \newlength{\myrulefill}
 
 %% For simplicity's sake!
-\newcommand{\fawesomize}[3][t]{
+\newcommand{\fawesomize}[3][t]{%
     \makebox[\contentindent][c]{#2}
     \begin{minipage}[#1]{\contentwidth-\contentindent}
         #3
@@ -116,40 +113,40 @@
 \newcommand{\link}[3][\color{primary-color}]{{#1\href{#2}{#3}}}
 
 %% Header definitions
-\newcommand{\profilepicture}[2][{0 0 0 0}]{
-    \newcommand{\theprofilepicture}[0]{
+\newcommand{\profilepicture}[2][{0 0 0 0}]{%
+    \newcommand{\theprofilepicture}[0]{%
     \begin{minipage}[c]{\profilepicturewidth}
         \includegraphics[trim=#1,clip,width=\textwidth]{#2}
     \end{minipage}
     \hspace{\contentindent}
     }
 }
-\newcommand{\birth}[2][EN]{
+\newcommand{\birth}[2][EN]{%
     \ifthenelse{\equal{#1}{FR}}
-    {
+    {%
         \newcommand{\thebirth}[0]{N\'e le #2}
     }
-    {
+    {%
         \newcommand{\thebirth}[0]{Date of birth #2}
     }
 }
-\newcommand{\email}[1]{\newcommand{\themail}[0]{
+\newcommand{\email}[1]{\newcommand{\themail}[0]{%
     \link[\color{secondary-color}]{mailto:#1}{#1}}
 }
 \newcommand{\address}[1]{\newcommand{\theaddress}[0]{#1}}
 \newcommand{\phone}[1]{\newcommand{\thephone}[0]{#1}}
-\newcommand{\website}[1]{\newcommand{\thewebsite}[0]{
+\newcommand{\website}[1]{\newcommand{\thewebsite}[0]{%
     \link[\color{secondary-color}]{https://#1}{#1}}
 }
 
 %% Header Layout: [ Pic  Title	  | Contact ]
-\renewcommand{\maketitle}{
+\renewcommand{\maketitle}{%
     \begin{minipage}[b][\headerheigth]{\headerwidth}
         \ifthenelse{\NOT\isundefined{\theprofilepicture}}
-        {
-            \theprofilepicture
+        {%
+            \theprofilepicture%
         }
-        {
+        {%
             \setlength{\titlesectionwidth}{\leftcolumnwidth}
         }
     	\begin{minipage}[t][0cm][c]{\titlesectionwidth}
@@ -159,23 +156,23 @@
     	\end{minipage}
     \end{minipage}\hfill
     \begin{minipage}[c][\headerheigth]{\contactsectionwidth}
-        \contentstyle
+        \contentstyle%
         \setlength{\contentwidth}{\contentwidthratio\textwidth}
         \setstretch{1.2}
         \begin{additems}
-            \item[\faCalendar] \thebirth
-            \item[\faEnvelope] \themail
-            \item[\faMapMarker] \theaddress
-            \item[\faPhoneSquare] \thephone
-            \item[\faLink] \thewebsite
+            \item[\faCalendar] \thebirth%
+            \item[\faEnvelope] \themail%
+            \item[\faMapMarker] \theaddress%
+            \item[\faPhoneSquare] \thephone%
+            \item[\faLink] \thewebsite%
         \end{additems}
     \end{minipage}
     \par
     \ifthenelse{\isundefined{\theprofilepicture}}
-    {
+    {%
         \vspace{2\headersep}
     }
-    {
+    {%
         \vspace{\headersep}
     }
 }
@@ -217,59 +214,59 @@
 %              {Project}[Company]{Tags}{Period}{Details}
 %     [lang]:  {Skill}{Mastery}{Details}
 %     [asset]: {Asset}{Details}
-\newcommand{\addcontent}[6][free]{
+\newcommand{\addcontent}[6][free]{%
     \hspace{\contentindent}
     \setlength{\contentwidth}{\contentwidthratio\textwidth}
     \begin{minipage}{\contentwidth}
         \ifthenelse{\NOT\equal{#1}{free}}
-        {
+        {%
             \subsection*{#2}
             %% Position (Skill)
-            \ifthenelse{\equal{#1}{asset}\AND
-                        \NOT\equal{#3}{}\AND
-                        \NOT\equal{#4}{inlined}\OR
+            \ifthenelse{\equal{#1}{asset}\AND%
+                        \NOT\equal{#3}{}\AND%
+                        \NOT\equal{#4}{inlined}\OR%
                         \equal{#1}{lang}}
-            {
+            {%
                 %% Breaking the subsection's runin
                 \hfill\\
             }
-            {
+            {%
                 %% else put nothing in this paragraph
             }
         }
-        {
+        {%
             %% else put nothing in this paragraph
         }
         \ifthenelse{\equal{#1}{job}\OR\equal{#1}{degree}}
-        {
+        {%
             %% / Company Place
             %% Period
             / {\companystyle #3} {\placestyle #4}
             \par{\periodstyle #5}
             \par\vspace{0.6\contentsep}
         }
-        {
+        {%
             \ifthenelse{\equal{#1}{project}}
-            {
+            {%
                 %% Tags
                 \ifthenelse{\NOT\equal{#3}{}}
-                {
+                {%
                     / {\companystyle #3}
                 }
-                {
+                {%
                     %% else put nothing in this paragraph
                 }
                 \hfill{\tagsstyle #4}
                 \par{\periodstyle#5}
                 \par\vspace{0.6\contentsep}
             }
-            {
+            {%
                 %% else put nothing in this paragraph
             }
         }
         \begin{minipage}{\textwidth}
             \ifthenelse{\equal{#1}{lang}}
-            {
+            {%
                 %% Mastery (rule)
                 \vspace{0.5\contentsep}
                 \begin{minipage}{\contentwidthratio\contentwidth}
@@ -280,32 +277,32 @@
                     {\color{light-gray-color}\rule{\myrulefill}{4pt}}
                 \end{minipage}
             }
-            {
+            {%
                 %% else put nothing in this paragraph
             }
             %% Details (This paragraph is for everyone)
-            \ifthenelse{\equal{#1}{free}}%
-            {
+            \ifthenelse{\equal{#1}{free}}
+            {%
                 {\contentstyle{#2}}
             }
-            {
+            {%
                 \ifthenelse{\equal{#1}{asset}}
-                {
-                    {\contentstyle{#3}}
+                {%
+                    {\contentstyle{#3}}%
                 }
-                {
+                {%
                     \ifthenelse{\equal{#1}{lang}}
-                    {
+                    {%
                         {\contentstyle{#4}}
                     }
-                    {
-                        \ifthenelse{\equal{#1}{degree}\OR
-                                    \equal{#1}{job}\OR
+                    {%
+                        \ifthenelse{\equal{#1}{degree}\OR%
+                                    \equal{#1}{job}\OR%
                                     \equal{#1}{project}}
-                        {
+                        {%
                             {\contentstyle{#6}}
                         }
-                        {
+                        {%
                             %% else put nothing in this paragraph
                         }
                     }
@@ -315,15 +312,15 @@
     \end{minipage}
     %% Spacing
     \ifthenelse{\equal{#1}{free}\OR\equal{#1}{lang}\OR\equal{#1}{asset}}
-    {
+    {%
         \vspace{0.5\contentsep}
     }
-    {
+    {%
         % FIXME Do it manually
     }
 }
 
 %% New block
-\newcommand{\addblock}[2]{
+\newcommand{\addblock}[2]{%
     \section*{\fawesomize{#1}{\mbox{#2}}}
 }
