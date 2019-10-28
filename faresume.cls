@@ -45,7 +45,9 @@
 \definecolor{light-gray-color}{HTML}{BFBFBF}
 
 %% Nice readable background
-%\pagecolor{page-color}
+\ifdefined\isprintable\else
+    \pagecolor{page-color}
+\fi
 
 %% Default document style
 \newcommand{\authorstyle}       {\color{default-color}\authorfont}
