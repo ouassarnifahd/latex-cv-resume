@@ -10,15 +10,16 @@ LATEX_OUT_CLEAN ?= $(LATEX_OUT_ERROR)
 OUTDIR := output
 PRTDIR := $(OUTDIR)/printable
 SRCDIR := source
+IMGDIR := media
 ATSDIR := ats
 
 # source files
-SRC := $(SRCDIR)/cv.tex $(SRCDIR)/resume.tex
+SRC := $(SRCDIR)/skeleton.tex
 # file dependecies
 DEPS := faresume.cls
 
 # output documents
-DOCS := $(SRC:$(SRCDIR)%tex=$(OUTDIR)%pdf)
+DOCS := $(OUTDIR)/resume.pdf $(OUTDIR)/cv.pdf
 # printable documents
 DOCS += $(DOCS:$(OUTDIR)%=$(PRTDIR)%)
 
@@ -30,14 +31,22 @@ all: compile mrproper
 
 compile: $(DOCS)
 
-$(OUTDIR)/%pdf:$(SRCDIR)/%tex $(DEPS)
-	@$(LATEX) -output-directory=$(patsubst %/,%,$(dir $@)) $< $(LATEX_OUT_CLEAN)
-	@$(LATEX) -output-directory=$(patsubst %/,%,$(dir $@)) $< $(LATEX_OUT_QUIET)
+$(OUTDIR)/%pdf:$(SRC) $(DEPS)
+	@TEXINPUTS=$(IMGDIR):$(@:$(OUTDIR)%.pdf=$(SRCDIR)%):$$TEXINPUTS \
+		$(LATEX) -jobname=$(notdir $(@:%.pdf=%)) -output-directory=$(patsubst %/,%,$(dir $@)) \
+		"\def\is$(notdir $(@:%.pdf=%)){1} \input{$<}" $(LATEX_OUT_CLEAN)
+	@TEXINPUTS=$(IMGDIR):$(@:$(OUTDIR)%.pdf=$(SRCDIR)%):$$TEXINPUTS \
+		$(LATEX) -jobname=$(notdir $(@:%.pdf=%)) -output-directory=$(patsubst %/,%,$(dir $@)) \
+		"\def\is$(notdir $(@:%.pdf=%)){1} \input{$<}" $(LATEX_OUT_QUIET)
 	@echo "ATS keywords matching test for $(notdir $@) (`pdftotext -q $@ - | grep -wio -f $(ATSWORDS) | sort -f | uniq -i | wc -l`/`wc -l $(ATSWORDS)`)"
 
-$(PRTDIR)%pdf:$(SRCDIR)%tex $(DEPS)
-	@$(LATEX) -output-directory=$(patsubst %/,%,$(dir $@)) "\def\isprintable{1} \input{$<}" $(LATEX_OUT_QUIET)
-	@$(LATEX) -output-directory=$(patsubst %/,%,$(dir $@)) "\def\isprintable{1} \input{$<}" $(LATEX_OUT_QUIET)
+$(PRTDIR)/%pdf:$(SRCDIR)/skeleton.tex $(DEPS)
+	@TEXINPUTS=$(IMGDIR):$(@:$(PRTDIR)%.pdf=$(SRCDIR)%):$$TEXINPUTS \
+		$(LATEX) -jobname=$(notdir $(@:%.pdf=%)) -output-directory=$(patsubst %/,%,$(dir $@)) \
+		"\def\is$(notdir $(@:%.pdf=%)){1} \def\isprintable{1} \input{$<}" $(LATEX_OUT_QUIET)
+	@TEXINPUTS=$(IMGDIR):$(@:$(PRTDIR)%.pdf=$(SRCDIR)%):$$TEXINPUTS \
+		$(LATEX) -jobname=$(notdir $(@:%.pdf=%)) -output-directory=$(patsubst %/,%,$(dir $@)) \
+		"\def\is$(notdir $(@:%.pdf=%)){1} \def\isprintable{1} \input{$<}" $(LATEX_OUT_QUIET)
 
 mrproper:
 	@rm -f {$(PRTDIR),$(OUTDIR)}/*.{out,log,aux}

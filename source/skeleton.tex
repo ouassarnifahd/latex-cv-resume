@@ -1,0 +1,35 @@
+\documentclass{faresume}
+
+\ifdefined\iscv
+\usepackage[french]{babel}
+\else\fi
+
+\ifdefined\isresume
+\usepackage[english]{babel}
+\else\fi
+
+\usepackage{CJKutf8}
+
+\begin{document}
+
+\input{header.tex}
+
+\begin{column}[\leftcolumnwidth]
+
+    \input{projects.tex}
+    \input{experience.tex}
+    \input{education.tex}
+
+\end{column}
+\begin{column}[\rightcolumnwidth]
+
+    \input{motivation.tex}
+    \input{assets.tex}
+    \input{languages.tex}
+    \input{skills.tex}
+    \input{interests.tex}
+    \input{links.tex}
+
+\end{column}
+
+\end{document}
