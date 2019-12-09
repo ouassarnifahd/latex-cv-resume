@@ -141,7 +141,7 @@
     \link[\color{secondary-color}]{https://#1}{#1}}
 }
 
-%% Header Layout: [ Pic  Title	  | Contact ]
+%% Header Layout: [ Pic  Title  | Contact ]
 \renewcommand{\maketitle}{%
     \begin{minipage}[b][\headerheigth]{\headerwidth}
         \ifthenelse{\NOT\isundefined{\theprofilepicture}}
@@ -151,11 +151,11 @@
         {%
             \setlength{\titlesectionwidth}{\leftcolumnwidth}
         }
-    	\begin{minipage}[t][0cm][c]{\titlesectionwidth}
+        \begin{minipage}[t][0cm][c]{\titlesectionwidth}
             {\authorstyle\theauthor}
             \par\setstretch{1.3}
             {\titlestyle\thetitle}
-    	\end{minipage}
+        \end{minipage}
     \end{minipage}\hfill
     \begin{minipage}[c][\headerheigth]{\contactsectionwidth}
         \contentstyle%

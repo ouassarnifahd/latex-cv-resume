@@ -38,7 +38,7 @@ $(OUTDIR)/%pdf:$(SRCDIR)/%tex $(DEPS)
 $(PRTDIR)%pdf:$(SRCDIR)%tex $(DEPS)
 	@$(LATEX) -output-directory=$(patsubst %/,%,$(dir $@)) "\def\isprintable{1} \input{$<}" $(LATEX_OUT_QUIET)
 	@$(LATEX) -output-directory=$(patsubst %/,%,$(dir $@)) "\def\isprintable{1} \input{$<}" $(LATEX_OUT_QUIET)
-	
+
 mrproper:
 	@rm -f {$(PRTDIR),$(OUTDIR)}/*.{out,log,aux}
 
