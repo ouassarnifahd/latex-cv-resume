@@ -25,7 +25,8 @@
 \newcommand{\titlefont}         {\large\bfseries}
 \newcommand{\blocktitlefont}    {\large}
 \newcommand{\sectionfont}       {\normalsize\bfseries}
-\newcommand{\contentfont}       {\normalsize\fontseries{l}\selectfont}
+\newcommand{\lightfont}         {\normalsize\fontseries{l}\selectfont}
+\newcommand{\contentfont}       {\normalsize\normalfont}
 \newcommand{\tagsfont}          {\scriptsize\scshape}
 
 %% DONT number pages!
@@ -55,8 +56,8 @@
 \newcommand{\contentstyle}      {\color{secondary-color}\contentfont}
 \newcommand{\blocktitlestyle}   {\color{primary-color}\blocktitlefont}
 \newcommand{\sectionstyle}      {\color{default-color}\sectionfont}
-\newcommand{\companystyle}      {\color{primary-color}\contentfont}
-\newcommand{\placestyle}        {\color{dark-gray-color}\contentfont}
+\newcommand{\companystyle}      {\color{primary-color}\normalfont}
+\newcommand{\placestyle}        {\color{dark-gray-color}\lightfont}
 \newcommand{\periodstyle}       {\color{secondary-color}\contentfont}
 \newcommand{\tagsstyle}         {\tagsfont}
 
@@ -95,20 +96,24 @@
     \begin{minipage}[#1]{\contentwidth-\contentindent}
         #3
     \end{minipage}
-    % \parbox[#1]{}
+}
+
+%% highlight items
+\newcommand{\texthl}[1]{%
+    {\color{dark-gray-color}{#1}}%
 }
 
 %% content items (TODO)
 \SetLabelAlign{center}{\makebox[\contentindent][c]{#1}}
 \newenvironment{additems}
 {%
-    \vspace{-0.2\contentsep}
+    %\vspace{-0.2\contentsep}
     \renewcommand{\labelitemi}{{\tiny\faStop}}
     \begin{itemize}[noitemsep,leftmargin=\contentindent]
 }
 {%
     \end{itemize}
-    \vspace{-0.5\contentsep}
+    \vspace{-0.4\contentsep}
 }
 
 % BUG invisible characters?
@@ -198,7 +203,7 @@
 {\blocktitlestyle}
 {}{0cm}{}
 \titlespacing{\section}
-{0cm}{0.5\contentsep}{0.3\contentsep}
+{0cm}{0.5\contentsep}{0.5\contentsep}
 
 %% subsection
 \titleformat{\subsection}[runin]
