@@ -77,7 +77,7 @@
 \newlength{\leftcolumnwidth}
 \newlength{\rightcolumnwidth}
 \newlength{\contactsectionwidth}
-\setlength{\leftcolumnwidth}        {0.68\textwidth}
+\setlength{\leftcolumnwidth}        {0.66\textwidth}
 \setlength{\rightcolumnwidth}       {0.38\textwidth}
 \setlength{\contactsectionwidth}    {0.90\rightcolumnwidth}
 
@@ -86,7 +86,8 @@
 \newlength{\contentsep}
 \setlength{\contentindent}          {.5cm}
 \newcommand{\contentwidthratio}     {0.90}
-\setlength{\contentsep}             {.2cm}
+\newcommand{\contentspacing}        {1.40}
+\setlength{\contentsep}             {.4cm}
 
 \newlength{\myrulefill}
 
@@ -148,6 +149,7 @@
 
 %% Header Layout: [ Pic  Title  | Contact ]
 \renewcommand{\maketitle}{%
+    % \noindent\fcolorbox{red}{gray}{%
     \begin{minipage}[b][\headerheigth]{\headerwidth}
         \ifthenelse{\NOT\isundefined{\theprofilepicture}}
         {%
@@ -182,6 +184,7 @@
     {%
         \vspace{\headersep}
     }
+    % }
 }
 
 %% Body Layout:   [    COLUMN1    | COLUMN2 ]
@@ -203,7 +206,7 @@
 {\blocktitlestyle}
 {}{0cm}{}
 \titlespacing{\section}
-{0cm}{0.5\contentsep}{0.5\contentsep}
+{0cm}{0.6\contentsep}{0.8\contentsep}
 
 %% subsection
 \titleformat{\subsection}[runin]
@@ -290,24 +293,24 @@
             %% Details (This paragraph is for everyone)
             \ifthenelse{\equal{#1}{free}}
             {%
-                {\contentstyle{#2}}
+                {\setstretch{\contentspacing}\contentstyle{#2}}
             }
             {%
                 \ifthenelse{\equal{#1}{asset}}
                 {%
-                    {\contentstyle{#3}}%
+                    {\setstretch{\contentspacing}\contentstyle{#3}}%
                 }
                 {%
                     \ifthenelse{\equal{#1}{lang}}
                     {%
-                        {\contentstyle{#4}}
+                        {\setstretch{\contentspacing}\contentstyle{#4}}
                     }
                     {%
                         \ifthenelse{\equal{#1}{degree}\OR%
                                     \equal{#1}{job}\OR%
                                     \equal{#1}{project}}
                         {%
-                            {\contentstyle{#6}}
+                            {\setstretch{\contentspacing}\contentstyle{#6}}
                         }
                         {%
                             %% else put nothing in this paragraph
@@ -324,6 +327,7 @@
     }
     {%
         % FIXME Do it manually
+        \vspace{0.8\contentsep}
     }
 }
 
