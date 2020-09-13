@@ -46,7 +46,7 @@ info:
 compile: $(DOCS)
 
 %pdf:$(SRC) $(DEPS)
-	@echo $@: $<
+	@#echo $@: $<
 	@TEXINPUTS=$(IMGDIR):$(SRCDIR):$(SRCDIR)/$(subst $(NAME)-$(TITLE),resume,$(notdir $(@:%.pdf=%))):$$TEXINPUTS \
 		$(LATEX) -jobname=$(notdir $(@:%.pdf=%)) -output-directory=$(patsubst %/,%,$(dir $@)) \
 		"\def\is$(notdir $(subst $(NAME)-$(TITLE)-,lang,$(@:%.pdf=%))){1} \def\is$(patsubst %/,%,$(dir $@))able{1} \input{$<}" $(LATEX_OUT_CLEAN)
