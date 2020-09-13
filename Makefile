@@ -45,22 +45,12 @@ info:
 
 compile: $(DOCS)
 
-# $(OUTDIR)/%pdf:$(SRC) $(DEPS)
-#     @#echo $@: $<
-#     @#TEXINPUTS=$(IMGDIR):$(SRCDIR):$(subst $(NAME)-$(TITLE),resume,$(@:$(OUTDIR)%.pdf=$(SRCDIR)%)):$$TEXINPUTS \
-#     #	$(LATEX) -jobname=$(notdir $(@:%.pdf=%)) -output-directory=$(patsubst %/,%,$(dir $@)) \
-#     #	"\def\is$(notdir $(subst resume-$(TITLE),lang,$(@:%.pdf=%))){1} \input{$<}" $(LATEX_OUT_CLEAN)
-#     @#TEXINPUTS=$(IMGDIR):$(SRCDIR):$(subst $(NAME)-$(TITLE),resume,$(@:$(OUTDIR)%.pdf=$(SRCDIR)%)):$$TEXINPUTS \
-#     #	$(LATEX) -jobname=$(notdir $(@:%.pdf=%)) -output-directory=$(patsubst %/,%,$(dir $@)) \
-#     #	"\def\is$(notdir $(subst resume-$(TITLE),lang,$(@:%.pdf=%))){1} \input{$<}" $(LATEX_OUT_QUIET)
-#     @#echo "ATS keywords matching test for $(notdir $@) (`pdftotext -q $@ - | grep -wio -f $(ATSWORDS) | sort -f | uniq -i | wc -l`/`wc -l $(ATSWORDS)`)"
-
 %pdf:$(SRC) $(DEPS)
 	@echo $@: $<
-	TEXINPUTS=$(IMGDIR):$(SRCDIR):$(SRCDIR)/$(subst $(NAME)-$(TITLE),resume,$(notdir $(@:%.pdf=%))):$$TEXINPUTS \
+	@TEXINPUTS=$(IMGDIR):$(SRCDIR):$(SRCDIR)/$(subst $(NAME)-$(TITLE),resume,$(notdir $(@:%.pdf=%))):$$TEXINPUTS \
 		$(LATEX) -jobname=$(notdir $(@:%.pdf=%)) -output-directory=$(patsubst %/,%,$(dir $@)) \
 		"\def\is$(notdir $(subst $(NAME)-$(TITLE)-,lang,$(@:%.pdf=%))){1} \def\is$(patsubst %/,%,$(dir $@))able{1} \input{$<}" $(LATEX_OUT_CLEAN)
-	TEXINPUTS=$(IMGDIR):$(SRCDIR):$(SRCDIR)/$(subst $(NAME)-$(TITLE),resume,$(notdir $(@:%.pdf=%))):$$TEXINPUTS \
+	@TEXINPUTS=$(IMGDIR):$(SRCDIR):$(SRCDIR)/$(subst $(NAME)-$(TITLE),resume,$(notdir $(@:%.pdf=%))):$$TEXINPUTS \
 		$(LATEX) -jobname=$(notdir $(@:%.pdf=%)) -output-directory=$(patsubst %/,%,$(dir $@)) \
 		"\def\is$(notdir $(subst $(NAME)-$(TITLE)-,lang,$(@:%.pdf=%))){1} \def\is$(patsubst %/,%,$(dir $@))able{1} \input{$<}" $(LATEX_OUT_QUIET)
 	@#echo "ATS keywords matching test for $(notdir $@) (`pdftotext -q $@ - | grep -wio -f $(ATSWORDS) | sort -f | uniq -i | wc -l`/`wc -l $(ATSWORDS)`)"
