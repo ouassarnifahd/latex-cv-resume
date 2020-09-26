@@ -1,8 +1,8 @@
 \documentclass{faresume}
 
-\ifdefined\iscv
+\ifdefined\islangfr%
 \usepackage[french]{babel}
-\else\ifdefined\isresume
+\else\ifdefined\islangen%
 \usepackage[english]{babel}
 \else\fi\fi
 
@@ -20,7 +20,20 @@
     \input{projects.tex}
     \input{experience.tex}
     \input{education.tex}
-    \input{interests.tex}
+
+    \ifdefined\isprintable%
+        \begin{column}[0.7\contentwidth]
+            \input{interests.tex}
+        \end{column}
+        \begin{column}[0.5\contentwidth]
+            \vfill
+            \begin{minipage}[c]{\qrwidth}
+                \includegraphics[width=\textwidth]{en-qr.png}
+            \end{minipage}\\
+        \end{column}
+    \else
+        \input{interests.tex}
+    \fi
 
 \end{column}
 \begin{column}[\rightcolumnwidth]

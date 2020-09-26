@@ -46,7 +46,14 @@
 \definecolor{light-gray-color}{HTML}{BFBFBF}
 
 %% Nice readable background
-\ifdefined\isprintable\else
+\ifdefined\isprintable
+    % \newcommand{\makeqr}[2][t]{%
+    %     \makebox[\contentindent][c]{#2}
+    %     \begin{minipage}[#1]{\contentwidth}
+    %     #3
+    %     \end{minipage}
+    % }
+\else
     \pagecolor{page-color}
 \fi
 
@@ -77,9 +84,11 @@
 \newlength{\leftcolumnwidth}
 \newlength{\rightcolumnwidth}
 \newlength{\contactsectionwidth}
+\newlength{\qrwidth}
 \setlength{\leftcolumnwidth}        {0.66\textwidth}
 \setlength{\rightcolumnwidth}       {0.38\textwidth}
 \setlength{\contactsectionwidth}    {0.90\rightcolumnwidth}
+\setlength{\qrwidth}                {1.50\profilepicturewidth}
 
 \newlength{\contentindent}
 \newlength{\contentwidth}
